@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Portfolio</title>
+
+  <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      margin: 0;
+
+      padding: 0;
+
+      background: #f9f9f9;
+
+      color: #333;
+
+    }
+
+    header {
+
+      background: #4CAF50;
+
+      color: white;
+
+      padding: 20px;
+
+      text-align: center;
+
+    }
+
+    nav {
+
+      background: #333;
+
+      display: flex;
+
+      justify-content: center;
+
+    }
+
+    nav a {
+
+      color: white;
+
+      padding: 14px 20px;
+
+      text-decoration: none;
+
+    }
+
+    nav a:hover {
+
+      background: #575757;
+
+    }
+
+    section {
+
+      padding: 40px;
+
+      text-align: center;
+
+    }
+
+    .profile-img {
+
+      width: 150px;
+
+      height: 150px;
+
+      border-radius: 50%;
+
+      border: 3px solid #4CAF50;
+
+      object-fit: cover;
+
+      margin: 15px 0;
+
+    }
+
+    .card {
+
+      background: white;
+
+      padding: 20px;
+
+      margin: 20px auto;
+
+      max-width: 700px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    }
+
+    input, textarea {
+
+      width: 90%;
+
+      padding: 10px;
+
+      margin: 8px 0;
+
+      border: 1px solid #ccc;
+
+      border-radius: 6px;
+
+    }
+
+    button {
+
+      background: #4CAF50;
+
+      color: white;
+
+      padding: 10px 20px;
+
+      border: none;
+
+      border-radius: 6px;
+
+      cursor: pointer;
+
+    }
+
+    button:hover {
+
+      background: #45a049;
+
+    }
+
+    #successMessage {
+
+      color: green;
+
+      font-weight: bold;
+
+      display: none;
+
+      margin-top: 10px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+
+    <h1> web development Portfolio</h1>
+
+    <p>Web Developer | Designer | Programmer</p>
+
+  </header>
+
+  <!-- Navbar -->
+
+  <nav>
+
+    <a href="#home">Home</a>
+
+    <a href="#about">About</a>
+
+    <a href="#skills">Skills</a>
+
+    <a href="#services">Services</a>
+
+    <a href="#projects">Projects</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+  <!-- Home Section -->
+
+  <section id="home">
+
+    <div class="card">
+
+      <h2>welcome</h2>
+
+      <p>This is my personal web development portfolio.</p>
+
+    </div>
+
+  </section>
+
+  <!-- About Section -->
+
+  <section id="about">
+
+    <div class="card">
+
+      <h2>About Me</h2>
+
+      <img id="profilePic" src="https://via.placeholder.com/150" class="profile-img" alt="Profile">
+
+      <br><br>
+
+      <input type="file" id="uploadPhoto" accept="image/*">
+
+      <p>Hello! I’m a passionate developer who loves creating modern websites.</p>
+
+    </div>
+
+  </section>
+
+  <!-- Skills Section -->
+
+  <section id="skills">
+
+    <div class="card">
+
+      <h2>Skills</h2>
+
+      <p>HTML • CSS • JavaScript • React • Node.js</p>
+
+    </div>
+
+  </section>
+
+  <!-- Services Section -->
+
+  <section id="services">
+
+    <div class="card">
+
+      <h2>Services</h2>
+
+      <p>✔ Web Development<br>✔ UI/UX Design<br>✔ Responsive Websites</p>
+
+    </div>
+
+  </section>
+
+  <!-- Projects Section -->
+
+  <section id="projects">
+
+    <div class="card">
+
+      <h2>Projects</h2>
+
+      <p>1. A simple web age<br>2. javascript based on quiz app <br>3. personal blog a css</p>
+
+    </div>
+
+  </section>
+
+  <!-- Contact Section -->
+
+  <section id="contact">
+
+    <div class="card">
+
+      <h2>Contact Me</h2>
+
+      <form id="contactForm">
+
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <textarea id="message" placeholder="Your Message..." required></textarea>
+
+        <br>
+
+        <button type="submit">Send</button>
+
+      </form>
+
+      <p id="successMessage">✅ Message Sent Successfully!</p>
+
+    </div>
+
+  </section>
+
+  <!-- JavaScript inside HTML -->
+
+  <script>
+
+    // Form Submit
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+      e.preventDefault();
+
+      document.getElementById("successMessage").style.display = "block";
+
+      this.reset();
+
+    });
+
+    // Photo Upload Preview
+
+    document.getElementById("uploadPhoto").addEventListener("change", function(event) {
+
+      const file = event.target.files[0];
+
+      if (file) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+          document.getElementById("profilePic").src = e.target.result;
+
+        };
+
+        reader.readAsDataURL(file);
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
